@@ -1,6 +1,6 @@
 package com.example.zanatbizkod.di
 
-import com.example.zanatbizkod.repository.mapper.LoginResponseDTOMapper
+import com.example.zanatbizkod.repository.mapper.logindtomapper.LoginResponseDTOMapper
 import org.koin.dsl.module
 
 val dtoMapperModule = module {

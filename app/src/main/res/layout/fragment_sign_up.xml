@@ -1,9 +1,370 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpFragment">
+    android:background="@color/light_beige"
+    tools:context=".ui.SignUpFragment">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/large_125" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/large_125" />
+
+    <include
+        android:id="@+id/toolbarLayout"
+        layout="@layout/toolbar" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupPrivatePerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="inputName,inputSurname,inputPhoneNumber,
+        inputEmail,inputPassword" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupLegalEntity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="inputCompanyName,inputTaxID,inputIDNumber,
+        inputContactPhoneNumber,inputContactEmail" />
+
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_100"
+        android:text="@string/sign_up"
+        android:textAllCaps="true"
+        android:textColor="@color/dark_beige"
+        android:textSize="@dimen/txt_large"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
+
+    <TextView
+        android:id="@+id/tvPrivatePerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/private_person"
+        android:textColor="@color/dark_beige"
+        android:textSize="@dimen/txt_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/switchCustomerType"
+        app:layout_constraintEnd_toStartOf="@+id/switchCustomerType"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@+id/switchCustomerType" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchCustomerType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_100"
+        android:layout_weight="3"
+        android:checked="false"
+        android:enabled="true"
+        app:layout_constraintEnd_toStartOf="@+id/tvLegalEntity"
+        app:layout_constraintStart_toEndOf="@+id/tvPrivatePerson"
+        app:layout_constraintTop_toBottomOf="@id/tvSignUp" />
+
+    <TextView
+        android:id="@+id/tvLegalEntity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/legal_entity"
+        android:textColor="@color/dark_beige"
+        android:textSize="@dimen/txt_normal"
+        app:layout_constraintBottom_toBottomOf="@+id/switchCustomerType"
+        app:layout_constraintStart_toEndOf="@+id/switchCustomerType"
+        app:layout_constraintTop_toTopOf="@+id/switchCustomerType"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/name"
+        android:textColorHint="@color/dark_beige"
+        app:boxBackgroundColor="@color/white_beige"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/switchCustomerType"
+        app:startIconDrawable="@drawable/ic_person">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputNameField"
+            android:inputType="text"
+            android:nextFocusDown="@+id/inputSurnameField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputCompanyName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/company_name"
+        android:textColorHint="@color/dark_beige"
+        android:visibility="gone"
+        app:boxBackgroundColor="@color/white_beige"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/switchCustomerType"
+        app:startIconDrawable="@drawable/ic_company">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputCompanyNameField"
+            android:inputType="text"
+            android:nextFocusDown="@+id/inputTaxIDField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputSurname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_100"
+        android:hint="@string/surname"
+        android:textColorHint="@color/dark_beige"
+        app:boxBackgroundColor="@color/white_beige"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/inputName"
+        app:startIconDrawable="@drawable/ic_person">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputSurnameField"
+            android:inputType="text"
+            android:nextFocusDown="@+id/inputPhoneNumberField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputTaxID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_100"
+        android:hint="@string/tax_ID"
+        android:textColorHint="@color/dark_beige"
+        android:visibility="gone"
+        app:boxBackgroundColor="@color/white_beige"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/inputCompanyName"
+        app:startIconDrawable="@drawable/ic_number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputTaxIDField"
+            android:inputType="number"
+            android:nextFocusDown="@+id/inputIDNumberField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_100"
+        android:hint="@string/phone_number"
+        android:textColorHint="@color/dark_beige"
+        app:boxBackgroundColor="@color/white_beige"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/inputSurname"
+        app:startIconDrawable="@drawable/ic_phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputPhoneNumberField"
+            android:inputType="text"
+            android:nextFocusDown="@+id/inputEmailField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputIDNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_100"
+        android:hint="@string/ID_number"
+        android:textColorHint="@color/dark_beige"
+        android:visibility="gone"
+        app:boxBackgroundColor="@color/white_beige"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/inputTaxID"
+        app:startIconDrawable="@drawable/ic_number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputIDNumberField"
+            android:inputType="number"
+            android:nextFocusDown="@+id/inputContactPhoneNumberField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_100"
+        android:hint="@string/e_mail"
+        android:textColorHint="@color/dark_beige"
+        app:boxBackgroundColor="@color/white_beige"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/inputPhoneNumber"
+        app:startIconDrawable="@drawable/ic_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEmailField"
+            android:inputType="text"
+            android:nextFocusDown="@+id/inputPasswordField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputContactPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_100"
+        android:hint="@string/contact_phone_number"
+        android:textColorHint="@color/dark_beige"
+        android:visibility="gone"
+        app:boxBackgroundColor="@color/white_beige"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/inputIDNumber"
+        app:startIconDrawable="@drawable/ic_phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputContactPhoneNumberField"
+            android:inputType="text"
+            android:nextFocusDown="@+id/inputContactEmailField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_100"
+        android:hint="@string/password"
+        android:textColorHint="@color/dark_beige"
+        app:boxBackgroundColor="@color/white_beige"
+        app:endIconMode="password_toggle"
+        app:helperText="@string/min_password_length"
+        app:helperTextEnabled="true"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/inputEmail"
+        app:startIconDrawable="@drawable/ic_password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputPasswordField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputContactEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_100"
+        android:hint="@string/contact_email"
+        android:textColorHint="@color/dark_beige"
+        android:visibility="gone"
+        app:boxBackgroundColor="@color/white_beige"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/inputContactPhoneNumber"
+        app:layout_constraintBottom_toTopOf="@id/cbTermsAndConditions"
+        app:startIconDrawable="@drawable/ic_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputContactEmailField"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/cbTermsAndConditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/by_creating_an_account"
+        android:textColor="@color/dark_beige"
+        android:textSize="@dimen/txt_small"
+        app:layout_constraintEnd_toStartOf="@+id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+
+    <TextView
+        android:id="@+id/tvTermsAndConditions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_50"
+        android:text="@string/terms_and_conditions"
+        android:textColor="@color/dark_beige"
+        android:textSize="@dimen/txt_small"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/cbTermsAndConditions"
+        app:layout_constraintStart_toEndOf="@+id/cbTermsAndConditions"
+        app:layout_constraintTop_toTopOf="@+id/cbTermsAndConditions" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonSignUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_100"
+        android:backgroundTint="@color/gray"
+        android:enabled="false"
+        android:padding="@dimen/normal_100"
+        android:text="@string/sign_up"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/normal_100"
+        app:layout_constraintEnd_toStartOf="@+id/endGuideline"
+        app:layout_constraintStart_toStartOf="@+id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/cbTermsAndConditions" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_100"
+        app:dividerColor="@color/gray"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignUp" />
+
+    <TextView
+        android:id="@+id/tvLoginAdditionalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_100"
+        android:text="@string/login_additional_txt"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/txt_normal"
+        app:layout_constraintEnd_toStartOf="@+id/endGuideline"
+        app:layout_constraintStart_toStartOf="@+id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

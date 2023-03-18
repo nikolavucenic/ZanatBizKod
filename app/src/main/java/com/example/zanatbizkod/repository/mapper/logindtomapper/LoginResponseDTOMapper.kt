@@ -1,4 +1,4 @@
-package com.example.zanatbizkod.repository.mapper
+package com.example.zanatbizkod.repository.mapper.logindtomapper
 
 import com.example.zanatbizkod.dtomappers.DomainMapper
 import com.example.zanatbizkod.model.dto.LoginResponseDTO

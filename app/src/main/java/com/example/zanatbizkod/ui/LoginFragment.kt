@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.zanatbizkod.R
 import com.example.zanatbizkod.databinding.FragmentLoginBinding
+import com.example.zanatbizkod.model.User
 import com.example.zanatbizkod.viewmodel.LoginFragmentViewModel
 import com.google.firebase.database.FirebaseDatabase
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,19 +27,19 @@ class LoginFragment : Fragment() {
 
         binding?.apply {
             buttonLogin.setOnClickListener {
-                //it.hideKeyboard()
+                it.hideKeyboard()
                 //login()
-                //val database = FirebaseDatabase.getInstance()
-                //val usersRef = database.getReference("users")
-                //val user = User("jsaofa", 12)
-                //usersRef.setValue(user)
+                val database = FirebaseDatabase.getInstance()
+                val usersRef = database.getReference("users")
+                val user = User("jsaoffa", 412)
+                usersRef.setValue(user)
             }
-            //buttonSignUp.setOnClickListener { signUp() }
-            //tvResetPassword.setOnClickListener { resetPassword() }
+            buttonSignUp.setOnClickListener { signUp() }
+            tvResetPassword.setOnClickListener { resetPassword() }
         }
     }
 
-    /*private fun login() {
+    private fun login() {
         binding?.apply {
             if (inputEmailField.text.isNullOrEmpty().not() &&
                 inputPasswordField.text.isNullOrEmpty().not()) {
@@ -55,7 +56,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun signUp() {
-        ////R.id.signUpFragment.navigate(requireView())
+        R.id.signUpFragment.navigate(requireView())
     }
 
     private fun resetPassword() {
@@ -72,5 +73,5 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-    }*/
+    }
 }
