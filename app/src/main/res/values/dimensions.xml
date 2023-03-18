@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="xsmall_100">1dp</dimen>
+    <dimen name="xsmall_150">1.5dp</dimen>
+
+    <dimen name="small_25">2dp</dimen>
+    <dimen name="small_50">4dp</dimen>
+    <dimen name="small_100">8dp</dimen>
+
+    <dimen name="small_125">10dp</dimen>
+    <dimen name="small_150">12dp</dimen>
+    <dimen name="small_175">14dp</dimen>
+
+    <dimen name="normal_100">16dp</dimen>
+    <dimen name="normal_125">20dp</dimen>
+    <dimen name="normal_150">24dp</dimen>
+    <dimen name="normal_175">28dp</dimen>
+
+    <dimen name="large_100">32dp</dimen>
+    <dimen name="large_125">40dp</dimen>
+    <dimen name="large_150">48dp</dimen>
+    <dimen name="large_175">56dp</dimen>
+
+    <dimen name="xlarge_100">64dp</dimen>
+    <dimen name="xlarge_125">80dp</dimen>
+    <dimen name="xlarge_150">96dp</dimen>
+
+    <dimen name="txt_small">12sp</dimen>
+    <dimen name="txt_normal">16sp</dimen>
+    <dimen name="txt_big">20sp</dimen>
+    <dimen name="txt_xbig">24sp</dimen>
+    <dimen name="txt_large">32sp</dimen>
+    <dimen name="txt_xlarge">40sp</dimen>
+
+    <dimen name="header">150dp</dimen>
+</resources>

@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "860090579739",
+    "firebase_url": "https://bizkod-36167-default-rtdb.firebaseio.com",
+    "project_id": "bizkod-36167",
+    "storage_bucket": "bizkod-36167.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860090579739:android:b09368d95267b8ef05b1be",
+        "android_client_info": {
+          "package_name": "com.example.zanatbizkod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860090579739-quvcf54hja3hvvdk83fp21e2s4fm82gd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALc9KMM-53FYKEDYvSMtCb48KCYoF3lYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860090579739-quvcf54hja3hvvdk83fp21e2s4fm82gd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860090579739:android:ddd4004b65df483505b1be",
+        "android_client_info": {
+          "package_name": "com.pinkod.bizkod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860090579739-quvcf54hja3hvvdk83fp21e2s4fm82gd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALc9KMM-53FYKEDYvSMtCb48KCYoF3lYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860090579739-quvcf54hja3hvvdk83fp21e2s4fm82gd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

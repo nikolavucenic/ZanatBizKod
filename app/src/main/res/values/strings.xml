@@ -1,3 +1,30 @@
 <resources>
-    <string name="app_name">ZanatBizKod</string>
+    <string name="app_name">Bizkod</string>
+    <string name="login">Prijavite se</string>
+    <string name="e_mail">E-mail</string>
+    <string name="not_already_a_user_text">Još niste član?</string>
+    <string name="forgot_password">Zaboravili ste lozinku?</string>
+    <string name="password">Lozinka</string>
+    <string name="sign_up">Registrujte se</string>
+    <string name="empty_field_error">Zahtev nije ispunjen zbog grešaka u formularu.</string>
+    <string name="unsuccessful_login">Pogrešan email ili lozinka, pokušajte ponovo.</string>
+    <string name="name">Ime</string>
+    <string name="surname">Prezime</string>
+    <string name="phone_number">Broj telefona</string>
+    <string name="terms_and_conditions">Uslove korišćenja</string>
+    <string name="by_creating_an_account">Pravljenjem naloga prihvatate</string>
+    <string name="login_additional_txt">Već imate nalog?</string>
+    <string name="private_person">Fizičko lice</string>
+    <string name="legal_entity">Pravno lice</string>
+    <string name="error_message">Neispravan unos %s</string>
+    <string name="min_password_length">Minimalno 8 karaktera</string>
+    <string name="reset_password_additional_txt">Ne brinite. Unesite Vašu email adresu i mi ćemo Vam poslati link za izmenu lozinke.</string>
+    <string name="send">Pošalji</string>
+    <string name="remembered_password">Setili ste se lozinke? Prijavite se.</string>
+    <string name="company_name">Naziv firme</string>
+    <string name="tax_ID">PIB</string>
+    <string name="ID_number">Matični broj</string>
+    <string name="contact_phone_number">Kontakt telefon</string>
+    <string name="contact_email">Kontakt email</string>
+    <string name="forgot_password_success">Poslat Vam je email sa linkom za izmenu lozinke.</string>
 </resources>
