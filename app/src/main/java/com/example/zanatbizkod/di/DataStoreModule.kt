@@ -1,7 +1,6 @@
 package com.example.zanatbizkod.di
 
 import com.example.zanatbizkod.repository.DobrokDatabase
-import com.example.zanatbizkod.repository.service.SigningService
 import com.example.zanatbizkod.util.Consts
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,20 +15,5 @@ val dataStoreModule = module {
     }
     single {
         get<DobrokDatabase>().dailyMenuItemDao()
-    }
-    single {
-        val logging = HttpLoggingInterceptor()
-        logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
-
-        val client = OkHttpClient.Builder()
-            .addInterceptor(logging)
-            .build()
-
-        Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(Consts.BASE_URL)
-            .client(client)
-            .build()
-            .create(SigningService::class.java)
     }
 }

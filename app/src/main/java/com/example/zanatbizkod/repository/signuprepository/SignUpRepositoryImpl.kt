@@ -10,28 +10,20 @@ import com.example.zanatbizkod.repository.mapper.signupdtomappers.SignUpRequestP
 import com.example.zanatbizkod.repository.service.SigningService
 
 class SignUpRepositoryImpl(
-    private val api: SigningService,
     private val signUpRequestPrivatePersonDTOMapper: SignUpRequestPrivatePersonDTOMapper,
     private val signUpRequestLegalEntityDTOMapper: SignUpRequestLegalEntityDTOMapper,
     private val apiResponseDTOMapper: ApiResponseDTOMapper
 ) : SignUpRepository {
 
-    override suspend fun passSignUpInformationPrivatePerson(signUpRequestPrivatePerson: SignUpRequestPrivatePerson): ApiResponseDTO? = null
-        /*signUpRequestPrivatePerson.runCatching {
+    override suspend fun passSignUpInformationPrivatePerson(signUpRequestPrivatePerson: SignUpRequestPrivatePerson) {
+        signUpRequestPrivatePerson.runCatching {
             signUpRequestPrivatePersonDTOMapper.mapEntity(this)
         }.mapCatching {
-            api.signUpPrivatePerson(
-                it.email,
-                it.password,
-                it.phoneNumber,
-                it.firstName,
-                it.lastName,
-            ).body()
-        }.mapCatching {
-            apiResponseDTOMapper.mapEntity(it)
+            SigningService.signUpPrivatePerson(it)
         }.onFailure {
             Log.e("Error","SignUpRequestPrivatePerson error: ${it.message}")
-        }.getOrNull()*/
+        }
+    }
 
     override suspend fun passSignUpInformationLegalEntity(signUpRequestLegalEntity: SignUpRequestLegalEntity): ApiResponseDTO? = null
         /*signUpRequestLegalEntity.runCatching {

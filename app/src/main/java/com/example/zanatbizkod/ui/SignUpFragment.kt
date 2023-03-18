@@ -204,6 +204,7 @@ class SignUpFragment : Fragment() {
         binding?.apply {
             signUpViewModel.signUpLiveData.observe(viewLifecycleOwner) { result ->
                 result?.takeIf { it.status }?.apply {
+                    "successful".snackbar(requireView())
                     //R.id.homeFragment.navigate(requireView())
                 } ?: run {
                     result?.message.toString().snackbar(requireView())

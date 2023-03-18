@@ -6,7 +6,7 @@ import com.example.zanatbizkod.model.signup.SignUpRequestPrivatePerson
 
 interface SignUpRepository {
 
-    suspend fun passSignUpInformationPrivatePerson(signUpRequestPrivatePerson: SignUpRequestPrivatePerson): ApiResponseDTO?
+    suspend fun passSignUpInformationPrivatePerson(signUpRequestPrivatePerson: SignUpRequestPrivatePerson)
 
     suspend fun passSignUpInformationLegalEntity(signUpRequestLegalEntity: SignUpRequestLegalEntity): ApiResponseDTO?
 

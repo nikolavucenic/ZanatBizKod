@@ -1,15 +1,14 @@
 package com.example.zanatbizkod.di
 
+import com.example.zanatbizkod.dtomappers.ApiResponseDTOMapper
 import com.example.zanatbizkod.repository.mapper.logindtomapper.LoginResponseDTOMapper
+import com.example.zanatbizkod.repository.mapper.signupdtomappers.SignUpRequestLegalEntityDTOMapper
+import com.example.zanatbizkod.repository.mapper.signupdtomappers.SignUpRequestPrivatePersonDTOMapper
 import org.koin.dsl.module
 
 val dtoMapperModule = module {
     single {
         LoginResponseDTOMapper()
-    }
-    /*
-    single {
-        LoginRequestDTOMapper()
     }
     single {
         SignUpRequestPrivatePersonDTOMapper()
@@ -20,6 +19,7 @@ val dtoMapperModule = module {
     single {
         ApiResponseDTOMapper()
     }
+    /*
     single {
         OrderNextTenDaysResponseDTOMapper(get())
     }

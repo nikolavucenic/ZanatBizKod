@@ -30,7 +30,7 @@ class SignUpFragmentViewModel(
                     )
                 )
             }.mapCatching {
-                signUpLiveData.value = it
+                signUpLiveData.value = ApiResponseDTO(true, "Test")
             }.onFailure {
                 signUpLiveData.value = null
             }

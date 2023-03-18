@@ -1,6 +1,6 @@
 package com.example.zanatbizkod.model.signupdtos
 
-class SignUpRequestPrivatePersonDTO(
+data class SignUpRequestPrivatePersonDTO(
     val email: String,
     val password: String,
     val phoneNumber: String,
