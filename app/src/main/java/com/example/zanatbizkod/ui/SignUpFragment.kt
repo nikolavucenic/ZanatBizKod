@@ -59,7 +59,7 @@ class SignUpFragment : Fragment() {
 
     private fun FragmentSignUpBinding.legalEntityListeners() {
         inputCompanyNameField.afterTextChangedListener()
-        inputTaxIDField.afterTextChangedListener()
+        inputPasswordLegalEntityField.afterTextChangedListener()
         inputIDNumberField.afterTextChangedListener()
         inputContactPhoneNumberField.afterTextChangedListener()
         inputContactEmailField.afterTextChangedListener()
@@ -166,7 +166,7 @@ class SignUpFragment : Fragment() {
     }
 
     private fun FragmentSignUpBinding.isValidCompanyData(): Boolean {
-        if (inputCompanyNameField.isValid() && inputTaxIDField.isValid() &&
+        if (inputCompanyNameField.isValid() && inputPasswordLegalEntityField.isValid() &&
             inputIDNumberField.isValid() && inputContactPhoneNumberField.isValid() &&
             inputContactEmailField.isValid() && cbTermsAndConditions.isChecked
         ) return true
@@ -184,7 +184,7 @@ class SignUpFragment : Fragment() {
         when (switchCustomerType.isChecked) {
             true -> signUpViewModel.sendSignUpInformationLegalEntity(
                 inputCompanyNameField.text.toString(),
-                inputTaxIDField.text.toString(),
+                inputPasswordLegalEntityField.text.toString(),
                 inputIDNumberField.text.toString(),
                 inputContactPhoneNumberField.text.toString(),
                 inputContactEmailField.text.toString(),
@@ -203,11 +203,10 @@ class SignUpFragment : Fragment() {
     private fun signUpLiveDataHandler() {
         binding?.apply {
             signUpViewModel.signUpLiveData.observe(viewLifecycleOwner) { result ->
-                result?.takeIf { it.status }?.apply {
+                if(result != null) {
                     "successful".snackbar(requireView())
-                    //R.id.homeFragment.navigate(requireView())
-                } ?: run {
-                    result?.message.toString().snackbar(requireView())
+                } else {
+                    getString(R.string.unsuccessful_signup).snackbar(requireView())
                 }
             }
         }

@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        app:constraint_referenced_ids="inputCompanyName,inputTaxID,inputIDNumber,
+        app:constraint_referenced_ids="inputCompanyName,inputPasswordLegalEntity,inputIDNumber,
         inputContactPhoneNumber,inputContactEmail" />
 
     <TextView
@@ -126,7 +126,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputCompanyNameField"
             android:inputType="text"
-            android:nextFocusDown="@+id/inputTaxIDField"
+            android:nextFocusDown="@+id/inputPasswordLegalEntityField"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -153,22 +153,25 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputTaxID"
+        android:id="@+id/inputPasswordLegalEntity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_100"
-        android:hint="@string/tax_ID"
-        android:textColorHint="@color/dark_beige"
+        android:hint="@string/password"
         android:visibility="gone"
+        android:textColorHint="@color/dark_beige"
+        app:endIconMode="password_toggle"
+        app:helperText="@string/min_password_length"
+        app:helperTextEnabled="true"
         app:boxBackgroundColor="@color/white_beige"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
         app:layout_constraintTop_toBottomOf="@+id/inputCompanyName"
-        app:startIconDrawable="@drawable/ic_number">
+        app:startIconDrawable="@drawable/ic_password">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputTaxIDField"
-            android:inputType="number"
+            android:id="@+id/inputPasswordLegalEntityField"
+            android:inputType="textPassword"
             android:nextFocusDown="@+id/inputIDNumberField"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -206,7 +209,7 @@
         app:boxBackgroundColor="@color/white_beige"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
         app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/inputTaxID"
+        app:layout_constraintTop_toBottomOf="@+id/inputPasswordLegalEntity"
         app:startIconDrawable="@drawable/ic_number">
 
         <com.google.android.material.textfield.TextInputEditText

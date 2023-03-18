@@ -11,7 +11,7 @@ val repositoryModule = module {
         LoginRepositoryImpl(get(), get(), get())
     }
     single<SignUpRepository> {
-        SignUpRepositoryImpl(get(), get(), get())
+        SignUpRepositoryImpl(get(), get())
     }
     /*single<ResetPasswordRepository> {
         ResetPasswordRepositoryImpl(get(), get())

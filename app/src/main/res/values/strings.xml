@@ -8,6 +8,7 @@
     <string name="sign_up">Registrujte se</string>
     <string name="empty_field_error">Zahtev nije ispunjen zbog grešaka u formularu.</string>
     <string name="unsuccessful_login">Pogrešan email ili lozinka, pokušajte ponovo.</string>
+    <string name="unsuccessful_signup">Neuspešna registracija, proverite ponovo podatke.</string>
     <string name="name">Ime</string>
     <string name="surname">Prezime</string>
     <string name="phone_number">Broj telefona</string>

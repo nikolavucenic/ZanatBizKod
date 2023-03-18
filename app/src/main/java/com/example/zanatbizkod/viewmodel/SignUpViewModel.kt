@@ -3,7 +3,6 @@ package com.example.zanatbizkod.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.zanatbizkod.model.api.ApiResponseDTO
 import com.example.zanatbizkod.model.signup.SignUpRequestLegalEntity
 import com.example.zanatbizkod.model.signup.SignUpRequestPrivatePerson
 import com.example.zanatbizkod.repository.signuprepository.SignUpRepository
@@ -13,7 +12,7 @@ class SignUpFragmentViewModel(
     private val repository: SignUpRepository
 ) : ViewModel() {
 
-    var signUpLiveData: MutableLiveData<ApiResponseDTO?> = MutableLiveData()
+    var signUpLiveData: MutableLiveData<Boolean?> = MutableLiveData()
 
     fun sendSignUpInformationPrivatePerson(
         email: String, password: String, phoneNumber: String, firstName: String, lastName: String
@@ -30,7 +29,7 @@ class SignUpFragmentViewModel(
                     )
                 )
             }.mapCatching {
-                signUpLiveData.value = ApiResponseDTO(true, "Test")
+                signUpLiveData.value = it
             }.onFailure {
                 signUpLiveData.value = null
             }
