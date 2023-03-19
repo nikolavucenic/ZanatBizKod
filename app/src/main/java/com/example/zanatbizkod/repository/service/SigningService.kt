@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import kotlin.math.log
 
 object SigningService {
 
@@ -38,28 +39,22 @@ object SigningService {
         return status
     }
 
-    fun login(loginRequest: LoginRequest, context: Context, view: View): String? =
-        checkPrivatePerson(loginRequest, context, view)
+    fun login(loginRequest: LoginRequest): Boolean {
+        var loginResult = false
+        if(!getPrivatePerson(loginRequest)) loginResult = getLegalEntity(loginRequest)
 
-    private fun checkPrivatePerson(loginRequest: LoginRequest, context: Context, view: View): String? {
-        var user: String? = null
+        return loginResult
+    }
+
+    private fun getPrivatePerson(loginRequest: LoginRequest): Boolean {
+        var successfulLogin = false
         FirebaseDatabase.getInstance().getReference("PrivatePerson").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (childSnapshot in snapshot.children) {
-                    childSnapshot.getValue<SignUpRequestPrivatePerson>()?.apply {
-                        val email = email
-                        val password = password
-                        if(loginRequest.username == email) {
-                            if(loginRequest.password == password) {
-                                user = phoneNumber
-                            } else {
-                                context.getString(R.string.incorrect_password).snackbar(view)
-                            }
-                        }
+                    if(childSnapshot.getValue(SignUpRequestPrivatePerson::class.java)?.checkData(loginRequest) == true) {
+                        Log.d("TEST","SUCC")
+                        successfulLogin = true
                     }
-                }
-                if(user == null) {
-                    user = checkLegalEntity(loginRequest, context, view)
                 }
             }
 
@@ -67,33 +62,43 @@ object SigningService {
                 Log.e("Firebase error", "Failed to read values")
             }
         })
-        return user
+        return successfulLogin
     }
 
-    private fun checkLegalEntity(loginRequest: LoginRequest, context: Context, view: View): String? {
-        var user: String? = null
+    private fun SignUpRequestPrivatePerson.checkData(loginData: LoginRequest): Boolean {
+        if(this.email == loginData.username) {
+            if(this.password == loginData.password) {
+                return true
+            }
+        }
+        return false
+    }
+
+    private fun SignUpRequestLegalEntity.checkData(loginData: LoginRequest): Boolean {
+        if(this.email == loginData.username) {
+            if(this.pib == loginData.password) {
+                return true
+            }
+        }
+        return false
+    }
+
+    private fun getLegalEntity(loginRequest: LoginRequest): Boolean {
+        var successfulLogin = false
         FirebaseDatabase.getInstance().getReference("LegalEntity").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (childSnapshot in snapshot.children) {
-                    childSnapshot.getValue<SignUpRequestLegalEntity>()?.apply {
-                        val email = email
-                        val password = pib
-                        if(loginRequest.username == email) {
-                            if(loginRequest.password == password) {
-                                user = phoneNumber
-                            } else {
-                                context.getString(R.string.incorrect_password).snackbar(view)
-                            }
-                        }
+                    if(childSnapshot.getValue(SignUpRequestLegalEntity::class.java)?.checkData(loginRequest) == true) {
+                        Log.d("TEST","SUCC2")
+                        successfulLogin = true
                     }
                 }
-                context.getString(R.string.email_doesnt_exist).snackbar(view)
             }
 
             override fun onCancelled(error: DatabaseError) {
                 Log.e("Firebase error", "Failed to read values")
             }
         })
-        return user
+        return successfulLogin
     }
 }

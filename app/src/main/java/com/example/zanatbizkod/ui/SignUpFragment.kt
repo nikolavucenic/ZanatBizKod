@@ -203,8 +203,8 @@ class SignUpFragment : Fragment() {
     private fun signUpLiveDataHandler() {
         binding?.apply {
             signUpViewModel.signUpLiveData.observe(viewLifecycleOwner) { result ->
-                if(result != null) {
-                    "successful".snackbar(requireView())
+                if(result == true) {
+                    R.id.homeFragment.navigate(requireView())
                 } else {
                     getString(R.string.unsuccessful_signup).snackbar(requireView())
                 }

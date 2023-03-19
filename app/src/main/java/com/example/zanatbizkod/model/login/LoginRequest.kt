@@ -7,7 +7,5 @@ data class LoginRequest(
     val username: String,
     @SerializedName("password")
     val password: String,
-    //@SerializedName("grant_type")
-    //val grant_type: String = Consts.PASSWORD,
 )
 

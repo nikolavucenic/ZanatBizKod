@@ -12,11 +12,11 @@ class LoginRepositoryImpl(
     private val loginRequestDTOMapper: LoginRequestDTOMapper,
 ) : LoginRepository {
 
-    override suspend fun passLoginInformation(loginRequest: LoginRequest, context: Context, view: View): String? =
+    override suspend fun passLoginInformation(loginRequest: LoginRequest): Boolean? =
         loginRequest.runCatching {
             loginRequestDTOMapper.mapEntity(this)
         }.mapCatching {
-            SigningService.login(loginRequest, context, view)
+            SigningService.login(loginRequest)
         }.onFailure {
             Log.e("Login Error", "passLoginInformation error: ${it.message}")
         }.getOrNull()

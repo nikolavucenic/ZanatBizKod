@@ -30,4 +30,6 @@
     <string name="forgot_password_success">Poslat Vam je email sa linkom za izmenu lozinke.</string>
     <string name="incorrect_password">Neispravna lozinka, pokušajte ponovo</string>
     <string name="email_doesnt_exist">E-mail ne postoji, pokušajte ponovo</string>
+    <string name="food_and_drinks">Hrana i piće</string>
+    <string name="handmade_items">Ručno pravljeni proizvodi</string>
 </resources>

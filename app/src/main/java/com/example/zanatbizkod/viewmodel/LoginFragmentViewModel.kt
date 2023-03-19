@@ -13,12 +13,12 @@ class LoginFragmentViewModel(
     private val repository: LoginRepository
 ) : ViewModel() {
 
-    var loginLiveData: MutableLiveData<String?> = MutableLiveData()
+    var loginLiveData: MutableLiveData<Boolean?> = MutableLiveData()
 
-    fun sendLoginInformation(username: String, password: String, context: Context, view: View) {
+    fun sendLoginInformation(username: String, password: String) {
         viewModelScope.launch {
             repository.runCatching {
-                passLoginInformation(LoginRequest(username, password), context, view)
+                passLoginInformation(LoginRequest(username, password))
             }.mapCatching {
                 loginLiveData.value = it
             }.onFailure {
