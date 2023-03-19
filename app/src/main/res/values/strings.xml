@@ -28,4 +28,6 @@
     <string name="contact_phone_number">Kontakt telefon</string>
     <string name="contact_email">Kontakt email</string>
     <string name="forgot_password_success">Poslat Vam je email sa linkom za izmenu lozinke.</string>
+    <string name="incorrect_password">Neispravna lozinka, pokušajte ponovo</string>
+    <string name="email_doesnt_exist">E-mail ne postoji, pokušajte ponovo</string>
 </resources>

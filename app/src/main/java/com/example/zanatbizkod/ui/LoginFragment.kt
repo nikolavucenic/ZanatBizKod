@@ -41,6 +41,8 @@ class LoginFragment : Fragment() {
                 loginViewModel.sendLoginInformation(
                     inputEmailField.text.toString(),
                     inputPasswordField.text.toString(),
+                    requireContext(),
+                    requireView()
                 )
 
                 loginLiveDataHandler()
@@ -60,10 +62,8 @@ class LoginFragment : Fragment() {
     private fun loginLiveDataHandler() {
         binding?.apply {
             loginViewModel.loginLiveData.observe(viewLifecycleOwner) { result ->
-                result?.takeIf { it.accessToken.isNotEmpty() }?.apply {
-                    //R.id.homeFragment.navigate(requireView())
-                } ?: run {
-                    getString(R.string.unsuccessful_login).snackbar(requireView())
+                if(result != null) {
+                    "successful".snackbar(requireView())
                 }
             }
         }
