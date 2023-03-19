@@ -27,11 +27,13 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/applicationButton"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
         android:layout_gravity="center"
+        android:adjustViewBounds="true"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_person" />
+        android:layout_margin="@dimen/small_100"
+        android:src="@drawable/logo_horizontal" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 

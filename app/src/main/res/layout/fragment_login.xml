@@ -25,50 +25,36 @@
         android:id="@+id/appIcon"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_zanat"
-        android:adjustViewBounds="true"
-        android:layout_marginVertical="@dimen/normal_100"
         android:layout_marginHorizontal="@dimen/xlarge_100"
-        app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintBottom_toTopOf="@id/tvLogIn"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginVertical="@dimen/large_100"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo_vertical"
         app:layout_constraintEnd_toStartOf="@+id/endGuideline"
         app:layout_constraintStart_toStartOf="@+id/startGuideline"
-        android:contentDescription="@string/app_name" />
-
-    <TextView
-        android:id="@+id/tvLogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/normal_100"
-        android:text="@string/login"
-        android:textAllCaps="true"
-        android:textSize="@dimen/txt_large"
-        android:textColor="@color/dark_beige"
-        app:layout_constraintStart_toStartOf="@id/startGuideline"
-        app:layout_constraintEnd_toEndOf="@id/endGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/appIcon" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/e_mail"
-        android:layout_marginTop="@dimen/normal_100"
-        android:textColorHint="@color/dark_beige"
         android:maxLines="1"
+        android:textColorHint="@color/dark_beige"
+        android:layout_marginTop="@dimen/large_100"
         app:boxBackgroundColor="@color/white_beige"
-        app:startIconDrawable="@drawable/ic_email"
-        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/appIcon"
         app:layout_constraintEnd_toEndOf="@id/endGuideline"
-        app:layout_constraintTop_toBottomOf="@+id/tvLogIn">
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:startIconDrawable="@drawable/ic_email"
+        tools:layout_editor_absoluteY="254dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputEmailField"
-            android:inputType="text"
-            android:nextFocusDown="@+id/inputPasswordField"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:nextFocusDown="@+id/inputPasswordField" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

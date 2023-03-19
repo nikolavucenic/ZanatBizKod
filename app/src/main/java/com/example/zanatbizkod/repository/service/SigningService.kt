@@ -1,24 +1,15 @@
 package com.example.zanatbizkod.repository.service
 
-import android.content.Context
 import android.util.Log
-import android.view.View
-import com.example.zanatbizkod.R
 import com.example.zanatbizkod.model.login.LoginRequest
 import com.example.zanatbizkod.model.signup.SignUpRequestLegalEntity
 import com.example.zanatbizkod.model.signup.SignUpRequestPrivatePerson
 import com.example.zanatbizkod.model.signupdtos.SignUpRequestLegalEntityDTO
 import com.example.zanatbizkod.model.signupdtos.SignUpRequestPrivatePersonDTO
-import com.example.zanatbizkod.ui.snackbar
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
-import com.google.firebase.ktx.Firebase
-import kotlin.math.log
-
 object SigningService {
 
     fun signUpPrivatePerson(signUpRequestPrivatePersonDTO: SignUpRequestPrivatePersonDTO): Boolean {
@@ -52,7 +43,6 @@ object SigningService {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (childSnapshot in snapshot.children) {
                     if(childSnapshot.getValue(SignUpRequestPrivatePerson::class.java)?.checkData(loginRequest) == true) {
-                        Log.d("TEST","SUCC")
                         successfulLogin = true
                     }
                 }
@@ -89,7 +79,6 @@ object SigningService {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (childSnapshot in snapshot.children) {
                     if(childSnapshot.getValue(SignUpRequestLegalEntity::class.java)?.checkData(loginRequest) == true) {
-                        Log.d("TEST","SUCC2")
                         successfulLogin = true
                     }
                 }
