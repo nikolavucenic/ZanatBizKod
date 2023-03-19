@@ -20,17 +20,17 @@ import androidx.room.RoomDatabase
     version = 1,
     exportSchema = true,
 )
-abstract class DobrokDatabase : RoomDatabase() {
+abstract class ZanatDatabase : RoomDatabase() {
 
     abstract fun dailyMenuItemDao(): DailyMenuItemDao
 
 /*    abstract fun orderDao(): OrderDao*/
 
     companion object {
-        fun getDatabase(context: Context): DobrokDatabase =
+        fun getDatabase(context: Context): ZanatDatabase =
             Room.databaseBuilder(
                 context,
-                DobrokDatabase::class.java,
+                ZanatDatabase::class.java,
                 "dobrok.db"
             ).build()
     }
